@@ -139,3 +139,7 @@ input {
 .incorrect {
     color: #f54242;
 }
+
+em {
+    font-style: italic;
+}

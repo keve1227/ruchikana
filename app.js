@@ -5,6 +5,7 @@ let allowKatakana = false;
 
 /** @type {ReturnType<typeof parseKana>} */
 let currentWord = [];
+let currentGloss = "";
 
 /** @type {ReturnType<typeof parseRomaji>} */
 let currentGuess = [];
@@ -21,8 +22,9 @@ body.removeAttribute("hidden");
 
 const words = wordsTxt
     .split("\n")
-    .map((row) => row.trim())
-    .filter(Boolean);
+    .filter((row) => row.trim().length > 0)
+    .map((row) => row.split("\t"))
+    .map(([word, gloss]) => ({ word, gloss }));
 
 await new Promise((resolve) => {
     startForm.addEventListener("submit", (e) => {
@@ -84,13 +86,10 @@ while (true) {
     nextWord();
 }
 
-/**
- * @returns {string}
- */
 function getRandomWord() {
     const decider = Math.random();
 
-    let selection = words.filter((word) => {
+    let selection = words.filter(({ word }) => {
         if (allowHiragana && allowKatakana) {
             switch (Math.floor(decider * 5)) {
                 case 0:
@@ -109,22 +108,23 @@ function getRandomWord() {
         }
     });
 
-    if (selection.every((word) => takenWords.has(word))) {
+    if (selection.every(({ word }) => takenWords.has(word))) {
         takenWords.clear();
     }
 
-    let word;
     do {
-        word = selection[Math.floor(Math.random() * selection.length)];
+        var { word, gloss } = selection[Math.floor(Math.random() * selection.length)];
     } while (takenWords.has(word));
 
     takenWords.add(word);
-    return word;
+    return { word, gloss };
 }
 
 function nextWord() {
     do {
-        currentWord = parseKana(getRandomWord());
+        const { word, gloss } = getRandomWord();
+        currentWord = parseKana(word);
+        currentGloss = gloss;
     } while (
         currentWord.length < 2 ||
         currentWord.length > 5 ||
@@ -175,6 +175,8 @@ function renderWord(bound = true) {
 
         reading.appendChild(span);
     }
+
+    document.querySelector("#gloss em").textContent = currentGloss;
 
     console.table([currentWord.map(({ hiragana }) => hiragana), currentGuess.map(({ hiragana }) => hiragana)]);
 }
