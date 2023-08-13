@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ルチかな</title>
+        <link rel="stylesheet" href="style.css" />
+        <script type="module" src="app.js"></script>
+    </head>
+    <body hidden>
+        <dialog open>
+            <form class="box flex vertical" method="dialog">
+                <h1>Welcome to ルチかな</h1>
+
+                <p>
+                    ルチかな is a simple game to help you get familiar with Japanese Hiragana and Katakana. Just select
+                    the type of characters you want to learn to get started!
+                </p>
+
+                <div class="flex">
+                    <button name="hiragana">Hiragana</button>
+                    <button name="katakana">Katakana</button>
+                    <button name="both">Both</button>
+                </div>
+            </form>
+        </dialog>
+
+        <main class="wrapper flex vertical">
+            <h1 class="center">Type this word</h1>
+
+            <div class="large flex flex-1 center">
+                <ruby>
+                    <span id="word">ひらがな</span>
+                    <rt id="reading">hiragana</rt>
+                </ruby>
+            </div>
+
+            <form class="box flex nowrap" onsubmit="return false">
+                <input class="flex-1" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" />
+                <button type="submit">Next</button>
+            </form>
+        </main>
+    </body>
+</html>
