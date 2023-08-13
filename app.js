@@ -125,7 +125,11 @@ function getRandomWord() {
 function nextWord() {
     do {
         currentWord = parseKana(getRandomWord());
-    } while (currentWord.length < 2 || currentWord.length > 5);
+    } while (
+        currentWord.length < 2 ||
+        currentWord.length > 5 ||
+        currentWord.some(({ romaji }) => romaji.includes("+"))
+    );
 
     currentGuess = [];
     guessField.value = "";
