@@ -151,7 +151,7 @@ function renderWord(bound = true) {
 
         if (guess[i]?.hiragana === hiragana) {
             span.classList.add("correct");
-        } else if (!bound) {
+        } else if (i in guess || !bound) {
             span.classList.add("incorrect");
         }
 
