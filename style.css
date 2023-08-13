@@ -134,11 +134,11 @@ input {
 }
 
 .correct {
-    color: #42f587;
+    color: #2bdfa3;
 }
 
 .incorrect {
-    color: #f54242;
+    color: #e73c30;
 }
 
 em {
