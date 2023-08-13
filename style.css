@@ -44,6 +44,7 @@ h1 {
     max-width: 768px;
     margin: 0 auto;
     padding: 1rem;
+    padding-bottom: 2rem;
 }
 
 .box {
@@ -142,4 +143,14 @@ input {
 
 em {
     font-style: italic;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0.5;
 }

@@ -25,23 +25,29 @@
             </form>
         </dialog>
 
-        <main class="wrapper flex vertical">
-            <h1 class="center">Try typing this word</h1>
-            <p class="center">(If you get stuck, just press "Next" to show the answer)</p>
+        <div class="wrapper flex vertical">
+            <main class="flex vertical flex-1">
+                <h1 class="center">Try typing this word</h1>
+                <p class="center">(If you get stuck, just press "Next" to show the answer)</p>
 
-            <div class="flex vertical flex-1 center">
-                <ruby class="large">
-                    <span id="word">ひらがな</span>
-                    <rt id="reading">hiragana</rt>
-                </ruby>
+                <div class="flex vertical flex-1 center">
+                    <ruby class="large">
+                        <span id="word">ひらがな</span>
+                        <rt id="reading">hiragana</rt>
+                    </ruby>
 
-                <p id="gloss"><em>hiragana</em></p>
-            </div>
+                    <p id="gloss"><em>hiragana</em></p>
+                </div>
 
-            <form class="box flex nowrap" onsubmit="return false">
-                <input class="flex-1" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" />
-                <button type="submit">Next</button>
-            </form>
-        </main>
+                <form class="box flex nowrap" onsubmit="return false">
+                    <input class="flex-1" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" />
+                    <button type="submit">Next</button>
+                </form>
+            </main>
+
+            <footer>
+                <em>&copy; 2023 Kevin Sundqvist Norlén</em>
+            </footer>
+        </div>
     </body>
 </html>
