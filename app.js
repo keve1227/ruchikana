@@ -131,6 +131,12 @@ function nextWord() {
         currentWord.some(({ romaji }) => romaji.includes("+"))
     );
 
+    if (currentWord.some(({ text }) => containsKatakana(text))) {
+        document.querySelector("#gloss").classList.add("katakana");
+    } else {
+        document.querySelector("#gloss").classList.remove("katakana");
+    }
+
     currentGuess = [];
     guessField.value = "";
     renderWord();

@@ -148,7 +148,16 @@ em {
 }
 
 #gloss {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
     opacity: 0.5;
+    cursor: default;
+}
+
+#gloss.katakana:not(:hover) {
+    background-color: black;
+    color: transparent;
+    user-select: none;
 }
 
 footer {
