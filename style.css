@@ -159,4 +159,5 @@ footer {
     font-size: 0.8rem;
     white-space: nowrap;
     opacity: 0.5;
+    z-index: 9999;
 }
