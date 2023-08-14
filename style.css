@@ -115,6 +115,8 @@ dialog[open] {
 
     background-color: var(--color-background);
     border: none;
+
+    z-index: 9999;
 }
 
 dialog > * {
@@ -143,6 +145,10 @@ input {
 
 em {
     font-style: italic;
+}
+
+#gloss {
+    opacity: 0.5;
 }
 
 footer {
